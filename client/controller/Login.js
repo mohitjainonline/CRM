@@ -52,38 +52,15 @@ export default class Login extends Component {
     }
     var user = CRMUsers.find({username}).fetch();
     if(user && user.length>0  && user[0].password== password){
-      successMessage = "Valid Details.";
+      window.localStorage.setItem("user", atob(JSON.stringify(user)));
+      window.location.reload();
     }else{
       successMessage = "Invalid Details.";
+      window.localStorage.removeItem("user");
     }
       this.setState({
           successMessage
-        });
-
-    // var _this = this;
-    // UserService.authenticate(formData).done(function(data){
-    //   if(data.success == true)
-    //   {
-    //     // change the component-container state
-    //     _this.setState({
-    //       errors: {}
-    //     });
-    //     // save the token
-    //     Auth.authenticateUser(data);
-    //     // change the current URL to /
-    //     _this.context.router.replace('/');
-    //   } else {
-    //     // failure
-
-    //     // change the component state
-    //     const errors = {};
-    //     errors.summary = data.msg;
-
-    //     _this.setState({
-    //       errors
-    //     });
-    //   }
-    // });
+        });    
 }
   changeUser(event) {
     const field = event.target.name;

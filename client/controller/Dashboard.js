@@ -60,7 +60,7 @@ export default class Dashboard extends Component {
                           aria-valuenow="90"
                           aria-valuemin="0"
                           aria-valuemax="100"
-                          style="width: 90%"
+                          
                         >
                           <span className="sr-only">
                             90% Complete (success)
@@ -82,7 +82,7 @@ export default class Dashboard extends Component {
                           aria-valuenow="30"
                           aria-valuemin="0"
                           aria-valuemax="100"
-                          style="width: 30%"
+                          
                         >
                           <span className="sr-only">
                             30% Complete (warning)
@@ -104,7 +104,7 @@ export default class Dashboard extends Component {
                           aria-valuenow="80"
                           aria-valuemin="0"
                           aria-valuemax="100"
-                          style="width: 80%"
+                          
                         >
                           <span className="sr-only">80% Complete</span>
                         </div>
@@ -124,7 +124,7 @@ export default class Dashboard extends Component {
                           aria-valuenow="78"
                           aria-valuemin="0"
                           aria-valuemax="100"
-                          style="width: 78%"
+                          
                         >
                           <span className="sr-only">78% Complete (danger)</span>
                         </div>
@@ -144,7 +144,7 @@ export default class Dashboard extends Component {
                           aria-valuenow="50"
                           aria-valuemin="0"
                           aria-valuemax="100"
-                          style="width: 50%"
+                          
                         >
                           <span className="sr-only">50% Complete</span>
                         </div>

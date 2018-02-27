@@ -52,7 +52,7 @@ export default class Login extends Component {
     }
     var user = CRMUsers.find({username}).fetch();
     if(user && user.length>0  && user[0].password== password){
-      window.localStorage.setItem("user", atob(JSON.stringify(user)));
+      window.localStorage.setItem("user", (JSON.stringify(user)));
       window.location.reload();
     }else{
       successMessage = "Invalid Details.";

@@ -26,7 +26,7 @@ const LoginForm = ({
                     </label> */}
                 <button className="btn btn-primary btn-lg btn-block" type="submit" onClick={onSubmit}>Login</button>
                 <button className="btn btn-info btn-lg btn-block hide" type="submit">Signup</button>
-                {{successMessage}}
+                {successMessage}
             </div>
         </form>
             

@@ -2,11 +2,11 @@ import React, { Component  } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import LoginForm from '../views/LoginForm.js';
 
-// import { Mongo } from 'meteor/mongo';
-// CRMUser = new Mongo.Collection('CRMUsers');
-import { CRMUsers } from '../../imports/api/CRMUsers.js';
+import { Mongo } from 'meteor/mongo';
+CRMUser = new Mongo.Collection('CRMUsers');
+//import { CRMUsers } from '../../imports/api/CRMUsers.js';
 // App component - represents the whole app
-class Login extends Component {
+export default class Login extends Component {
     /**
    * Class constructor.
    */
@@ -50,7 +50,7 @@ class Login extends Component {
       username: username,
       password : password
     }
-    var user = this.props.CRMUsers;
+    var user = CRMUsers.find({}).fetch();
     console.log(user);
     // var _this = this;
     // UserService.authenticate(formData).done(function(data){
@@ -98,8 +98,8 @@ class Login extends Component {
     );
   }
 }
-export default withTracker(() => {
-  return {
-    CRMUsers: CRMUsers.find({}).fetch(),
-  };
-})(Login);
+// export default withTracker(() => {
+//   return {
+//     CRMUsers: CRMUsers.find({}).fetch(),
+//   };
+// })(Login);

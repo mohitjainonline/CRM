@@ -44,8 +44,8 @@ export default class Login extends Component {
     event.preventDefault();
 
     // create a string for an HTTP body message
-    const username = encodeURIComponent(this.state.user.username);
-    const password = encodeURIComponent(this.state.user.password);
+    const username = this.state.user.username;
+    const password = this.state.user.password;
     var formData = {
       username: username,
       password : password

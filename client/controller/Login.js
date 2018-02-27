@@ -50,8 +50,16 @@ export default class Login extends Component {
       username: username,
       password : password
     }
-    var user = CRMUsers.find({}).fetch();
-    console.log(user);
+    var user = CRMUsers.find({username}).fetch();
+    if(user && user.length>0  && user[0].password== password){
+      successMessage = "Valid Details.";
+    }else{
+      successMessage = "Invalid Details.";
+    }
+      this.setState({
+          successMessage
+        });
+
     // var _this = this;
     // UserService.authenticate(formData).done(function(data){
     //   if(data.success == true)

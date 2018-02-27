@@ -18,7 +18,7 @@ Meteor.startup(() => {
 
 FlowRouter.route("/", {
   action() {
-    if (window.localStorage.getItem("user") != "") {
+    if (window.localStorage.getItem("user") != null) {
       mount(Dashboard, {
         main: <MainPage />
       });

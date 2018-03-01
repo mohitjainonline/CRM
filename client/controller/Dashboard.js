@@ -354,8 +354,8 @@ export default class Dashboard extends Component {
         </aside>
 
         <section id="main-content">
-          <section className="wrapper">            
-            <MainPage />
+          <section className="wrapper">   
+            {this.props.children}                     
           </section>
         </section>
       </section>

@@ -3,6 +3,26 @@ import React, { Component } from "react";
 import MainPage from "./MainPage.js";
 // App component - represents the whole app
 export default class Dashboard extends Component {
+
+
+  constructor(props, context) {
+    super(props, context);
+
+    var user = localStorage.getItem('user');
+    user = JSON.parse(user);
+    
+    // set the initial component state
+    this.state = {
+      user: user
+    };
+
+    
+  }
+  Logout(){
+    window.localStorage.removeItem("user");
+    window.location.reload();
+  }
+
   render() {
     return (
       <section id="container" className="">
@@ -281,43 +301,31 @@ export default class Dashboard extends Component {
                   <span className="profile-ava">
                     <img alt="" src="img/avatar1_small.jpg" />
                   </span>
-                  <span className="username">Jenifer Smith</span>
+                  <span className="username">{this.state.user.name}</span>
                   <b className="caret" />
                 </a>
                 <ul className="dropdown-menu extended logout">
                   <div className="log-arrow-up" />
                   <li className="eborder-top">
-                    <a href="#">
+                    <a href="/">
                       <i className="icon_profile" /> My Profile
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="/">
                       <i className="icon_mail_alt" /> My Inbox
                     </a>
                   </li>
+                  
+                  
                   <li>
-                    <a href="#">
-                      <i className="icon_clock_alt" /> Timeline
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="icon_chat_alt" /> Chats
-                    </a>
-                  </li>
-                  <li>
-                    <a href="login.html">
+                    <a onClick={this.Logout.bind(this)}>
                       <i className="icon_key_alt" /> Log Out
                     </a>
                   </li>
+                  
                   <li>
-                    <a href="documentation.html">
-                      <i className="icon_key_alt" /> Documentation
-                    </a>
-                  </li>
-                  <li>
-                    <a href="documentation.html">
+                    <a href="/">
                       <i className="icon_key_alt" /> Documentation
                     </a>
                   </li>
@@ -330,115 +338,10 @@ export default class Dashboard extends Component {
           <div id="sidebar" className="nav-collapse ">
             <ul className="sidebar-menu">
               <li className="active">
-                <a className="" href="index.html">
+                <a className="" href="/">
                   <i className="icon_house_alt" />
                   <span>Dashboard</span>
                 </a>
-              </li>
-              <li className="sub-menu">
-                <a href="javascript:;" className="">
-                  <i className="icon_document_alt" />
-                  <span>Forms</span>
-                  <span className="menu-arrow arrow_carrot-right" />
-                </a>
-                <ul className="sub">
-                  <li>
-                    <a className="" href="form_component.html">
-                      Form Elements
-                    </a>
-                  </li>
-                  <li>
-                    <a className="" href="form_validation.html">
-                      Form Validation
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="sub-menu">
-                <a href="javascript:;" className="">
-                  <i className="icon_desktop" />
-                  <span>UI Fitures</span>
-                  <span className="menu-arrow arrow_carrot-right" />
-                </a>
-                <ul className="sub">
-                  <li>
-                    <a className="" href="general.html">
-                      Elements
-                    </a>
-                  </li>
-                  <li>
-                    <a className="" href="buttons.html">
-                      Buttons
-                    </a>
-                  </li>
-                  <li>
-                    <a className="" href="grids.html">
-                      Grids
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a className="" href="widgets.html">
-                  <i className="icon_genius" />
-                  <span>Widgets</span>
-                </a>
-              </li>
-              <li>
-                <a className="" href="chart-chartjs.html">
-                  <i className="icon_piechart" />
-                  <span>Charts</span>
-                </a>
-              </li>
-
-              <li className="sub-menu">
-                <a href="javascript:;" className="">
-                  <i className="icon_table" />
-                  <span>Tables</span>
-                  <span className="menu-arrow arrow_carrot-right" />
-                </a>
-                <ul className="sub">
-                  <li>
-                    <a className="" href="basic_table.html">
-                      Basic Table
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="sub-menu">
-                <a href="javascript:;" className="">
-                  <i className="icon_documents_alt" />
-                  <span>Pages</span>
-                  <span className="menu-arrow arrow_carrot-right" />
-                </a>
-                <ul className="sub">
-                  <li>
-                    <a className="" href="profile.html">
-                      Profile
-                    </a>
-                  </li>
-                  <li>
-                    <a className="" href="login.html">
-                      <span>Login Page</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a className="" href="contact.html">
-                      <span>Contact Page</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a className="" href="blank.html">
-                      Blank Page
-                    </a>
-                  </li>
-                  <li>
-                    <a className="" href="404.html">
-                      404 Error
-                    </a>
-                  </li>
-                </ul>
               </li>
             </ul>
           </div>
@@ -454,7 +357,7 @@ export default class Dashboard extends Component {
                 <ol className="breadcrumb">
                   <li>
                     <i className="fa fa-home" />
-                    <a href="index.html">Home</a>
+                    <a href="/">Home</a>
                   </li>
                   <li>
                     <i className="fa fa-laptop" />Dashboard

@@ -37,7 +37,7 @@ export default class Dashboard extends Component {
             </div>
           </div>
 
-          <a href="index.html" className="logo">
+          <a href="/" className="logo">
             Nice <span className="lite">Admin</span>
           </a>
 
@@ -341,6 +341,12 @@ export default class Dashboard extends Component {
                 <a className="" href="/">
                   <i className="icon_house_alt" />
                   <span>Dashboard</span>
+                </a>
+              </li>
+              <li className="">
+                <a className="" href="/upload">
+                  <i className="icon_upload" />
+                  <span>Upload XL</span>
                 </a>
               </li>
             </ul>

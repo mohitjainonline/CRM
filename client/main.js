@@ -9,6 +9,7 @@ import Login from "./controller/Login.js";
 
 import Dashboard from "./controller/Dashboard.js";
 import MainPage from "./controller/MainPage.js";
+import Upload from "./controller/Upload.js";
 
 //import LoginForm from './views/LoginForm.js';
 
@@ -41,6 +42,13 @@ FlowRouter.route("/dashboard", {
   action() {
     mount(Dashboard, {
         main: <MainPage />
+      });
+  }
+});
+FlowRouter.route("/upload", {
+  action() {
+    mount(Dashboard, {
+        main: <Upload />
       });
   }
 });

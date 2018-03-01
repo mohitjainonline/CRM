@@ -8,7 +8,7 @@ export default class MainPage extends Component {
  
   render() {
     return ( 
-        <BREADCRUMBCOMP  /> 
+        <BREADCRUMBCOMP name="Dashboard" /> 
     );
   }
 }

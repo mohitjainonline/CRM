@@ -348,23 +348,7 @@ export default class Dashboard extends Component {
         </aside>
 
         <section id="main-content">
-          <section className="wrapper">
-            <div className="row">
-              <div className="col-lg-12">
-                <h3 className="page-header">
-                  <i className="fa fa-laptop" /> Dashboard
-                </h3>
-                <ol className="breadcrumb">
-                  <li>
-                    <i className="fa fa-home" />
-                    <a href="/">Home</a>
-                  </li>
-                  <li>
-                    <i className="fa fa-laptop" />Dashboard
-                  </li>
-                </ol>
-              </div>
-            </div>
+          <section className="wrapper">            
             <MainPage />
           </section>
         </section>

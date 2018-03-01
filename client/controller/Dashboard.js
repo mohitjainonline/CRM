@@ -355,7 +355,7 @@ export default class Dashboard extends Component {
 
         <section id="main-content">
           <section className="wrapper">   
-            {this.props.children}                     
+            {this.props.main}                     
           </section>
         </section>
       </section>

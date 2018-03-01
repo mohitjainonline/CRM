@@ -4,7 +4,7 @@ function initializeJS() {
     jQuery('.tooltips').tooltip();
 
     //popovers
-    jQuery('.popovers').popover();
+    //jQuery('.popovers').popover();
 
     //custom scrollbar
         //for html

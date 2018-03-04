@@ -30,10 +30,10 @@ uploadIt(e){
 debugger;
     let self = this;
 
-    if (e.currentTarget.files && e.currentTarget.files[0]) {
+    if (this.fileinput && this.fileinput.files && this.fileinput.files[0]) {
       // We upload only one file, in case
       // there was multiple files selected
-      var file = e.currentTarget.files[0];
+      var file = this.fileinput.files[0];
 
       if (file) {
         let uploadInstance = UserFiles.insert({
@@ -126,7 +126,7 @@ debugger;
                 <form role="form">
                   <div className="form-group">
                     <label for="exampleInputFile">File input</label>
-                    <input type="file" id="fileinput" disabled={this.state.inProgress} ref="fileinput" />
+                    <input type="file" id="fileinput" disabled={this.state.inProgress} ref={(ref) => this.fileinput = ref} />
                     <p className="help-block">
                       Upload excel data.
                     </p>

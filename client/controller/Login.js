@@ -2,9 +2,9 @@ import React, { Component  } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import LoginForm from '../views/LoginForm.js';
 
-import { Mongo } from 'meteor/mongo';
-CRMUsers = new Mongo.Collection('CRMUsers');
-//import { CRMUsers } from '../../imports/api/CRMUsers.js';
+//import { Mongo } from 'meteor/mongo';
+//CRMUsers = new Mongo.Collection('CRMUsers');
+import { CRMUsers } from '../../imports/api/CRMUsers.js';
 // App component - represents the whole app
 export default class Login extends Component {
     /**

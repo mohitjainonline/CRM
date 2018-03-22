@@ -4,6 +4,12 @@ import { Meteor } from 'meteor/meteor';
 
 import BREADCRUMBCOMP from "../views/breadcrumb.js";
 // App component - represents the whole app
+
+//import { Mongo } from 'meteor/mongo';
+//CRMUsers = new Mongo.Collection('CRMUsers');
+//UserFiles = new Mongo.Collection('UserFiles');
+import { CRMUsers, UserFiles } from '../../imports/api/CRMUsers.js';
+
 export default class Upload extends Component {
 constructor(props, context) {
     super(props, context);
@@ -40,7 +46,7 @@ debugger;
           file: file,
           meta: {
             locator: self.props.fileLocator,
-            userId: Meteor.userId() // Optional, used to check on server for file tampering
+            userId: "001" // Optional, used to check on server for file tampering
           },
           streams: 'dynamic',
           chunkSize: 'dynamic',
@@ -48,44 +54,44 @@ debugger;
         }, false);
 
         self.setState({
-          uploading: uploadInstance, // Keep track of this instance to use below
+          uploading: file, // Keep track of this instance to use below
           inProgress: true // Show the progress bar now
         });
 
         // These are the event functions, don't need most of them, it shows where we are in the process
-        uploadInstance.on('start', function () {
-          console.log('Starting');
-        });
+        // uploadInstance.on('start', function () {
+        //   console.log('Starting');
+        // });
 
-        uploadInstance.on('end', function (error, fileObj) {
-          console.log('On end File Object: ', fileObj);
-        });
+        // uploadInstance.on('end', function (error, fileObj) {
+        //   console.log('On end File Object: ', fileObj);
+        // });
 
-        uploadInstance.on('uploaded', function (error, fileObj) {
-          console.log('uploaded: ', fileObj);
+        // uploadInstance.on('uploaded', function (error, fileObj) {
+        //   console.log('uploaded: ', fileObj);
 
-          // Remove the filename from the upload box
-          self.refs['fileinput'].value = '';
+        //   // Remove the filename from the upload box
+        //   self.refs['fileinput'].value = '';
 
-          // Reset our state for the next file
-          self.setState({
-            uploading: [],
-            progress: 0,
-            inProgress: false
-          });
-        });
+        //   // Reset our state for the next file
+        //   self.setState({
+        //     uploading: [],
+        //     progress: 0,
+        //     inProgress: false
+        //   });
+        // });
 
-        uploadInstance.on('error', function (error, fileObj) {
-          console.log('Error during upload: ' + error);
-        });
+        // uploadInstance.on('error', function (error, fileObj) {
+        //   console.log('Error during upload: ' + error);
+        // });
 
-        uploadInstance.on('progress', function (progress, fileObj) {
-          console.log('Upload Percentage: ' + progress);
-          // Update our progress bar
-          self.setState({
-            progress: progress
-          })
-        });
+        // uploadInstance.on('progress', function (progress, fileObj) {
+        //   console.log('Upload Percentage: ' + progress);
+        //   // Update our progress bar
+        //   self.setState({
+        //     progress: progress
+        //   })
+        // });
 
         uploadInstance.start(); // Must manually start the upload
       }
@@ -123,9 +129,9 @@ debugger;
             <section className="panel">
               <header className="panel-heading">Basic Forms</header>
               <div className="panel-body">
-                <form role="form">
+                
                   <div className="form-group">
-                    <label for="exampleInputFile">File input</label>
+                    <label htmlFor="fileinput">File input</label>
                     <input type="file" id="fileinput" disabled={this.state.inProgress} ref={(ref) => this.fileinput = ref} />
                     <p className="help-block">
                       Upload excel data.
@@ -135,7 +141,7 @@ debugger;
                   <button type="submit" className="btn btn-primary" disabled={this.state.inProgress} onClick={this.uploadIt}>
                     Submit 
                   </button>
-                </form>
+                
               </div>
             </section>
           </div>

@@ -10,18 +10,20 @@ import Login from "./controller/Login.js";
 import Dashboard from "./controller/Dashboard.js";
 import MainPage from "./controller/MainPage.js";
 import Upload from "./controller/Upload.js";
+import ShowAllLeads from "./controller/ShowAllLeads.js";
 
-//import LoginForm from './views/LoginForm.js';
+
 
 Meteor.startup(() => {
   //render(App, document.getElementById('render-target'));
 });
 
 FlowRouter.route("/", {
-  action() {
+  action() {    
     if (window.localStorage.getItem("user") != null) {
+      var user = JSON.parse(window.localStorage.getItem("user"));
       mount(Dashboard, {
-        main: <MainPage />
+        main: <ShowAllLeads user={user}/>
       });
     } else {
       mount(App, {
@@ -40,15 +42,45 @@ FlowRouter.route("/login", {
 });
 FlowRouter.route("/dashboard", {
   action() {
-    mount(Dashboard, {
-        main: <MainPage />
+    if (window.localStorage.getItem("user") != null) {
+      var user = JSON.parse(window.localStorage.getItem("user"));
+      mount(Dashboard, {
+        main: <ShowAllLeads user={user}/>
       });
+    } else {
+      mount(App, {
+        main: <Login />
+      });
+    }
+
   }
 });
 FlowRouter.route("/upload", {
   action() {
+    if (window.localStorage.getItem("user") != null) {
+      var user = JSON.parse(window.localStorage.getItem("user"));
     mount(Dashboard, {
-        main: <Upload />
+        main: <Upload user={user}/>
       });
+    } else {
+      mount(App, {
+        main: <Login />
+      });
+    }
+  }
+});
+
+FlowRouter.route("/showallleads", {
+  action() {
+    if (window.localStorage.getItem("user") != null) {
+      var user = JSON.parse(window.localStorage.getItem("user"));
+    mount(Dashboard, {
+        main: <ShowAllLeads user={user}/>
+      });
+    } else {
+      mount(App, {
+        main: <Login />
+      });
+    }
   }
 });

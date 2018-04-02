@@ -2,9 +2,7 @@ import React, { Component  } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import LoginForm from '../views/LoginForm.js';
 
-//import { Mongo } from 'meteor/mongo';
-//CRMUsers = new Mongo.Collection('CRMUsers');
-import { CRMUsers } from '../../imports/api/CRMUsers.js';
+import { CRMUsers } from '../../imports/api/model.js';
 // App component - represents the whole app
 export default class Login extends Component {
     /**
@@ -50,6 +48,7 @@ export default class Login extends Component {
       username: username,
       password : password
     }
+    debugger
     var user = CRMUsers.find({username}).fetch();
     if(user && user.length>0  && user[0].password== password){
       window.localStorage.setItem("user", (JSON.stringify(user[0])));

@@ -22,6 +22,7 @@ constructor(props, context) {
     };
     
     
+      
   }
   UploadedLeads(){         
     if(_.isEmpty(this.state.UploadedLeads)){
@@ -54,17 +55,17 @@ constructor(props, context) {
     
     }
   componentDidMount() {   
-
+   
     setTimeout(function(){
-      
       Meteor.subscribe("UserFiles",this.props.user.compid);
       Meteor.subscribe("LeadData",this.props.user.compid);
+      console.log(this.props.user)
       debugger
       var UploadedLeads = []
       var _this = this;
 
       var files= UserFiles.find({"compid" : this.props.user.compid}).fetch();
-      //console.log(files)
+      console.log(files)
       var docids = [];
       files.forEach(function(element) {
         docids.push(element._id)
@@ -73,9 +74,9 @@ constructor(props, context) {
       if(docids.length<1){
         return;
       }
-
+      console.log("UploadedLeads")
       UploadedLeads = LeadData.find({"docid" : {$in : docids}}).fetch();
-      //console.log(UploadedLeads)
+      console.log(UploadedLeads)
       
       // .observe({
       //   added: function(document) {
@@ -104,7 +105,7 @@ constructor(props, context) {
         files : files
       });      
       this.UploadedLeads()
-    }.bind(this),1000)
+    }.bind(this),3000)
     
   }
 

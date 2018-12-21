@@ -5,15 +5,15 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.40",
+    "@babel/runtime": "^7.2.0",
     "meteor-node-stubs": "^0.3.2",
-    "papaparse": "^4.3.7",
-    "phantomjs": "^1.9.16",
-    "react": "^16.2.0",
+    "papaparse": "^4.6.2",
+    "phantomjs": "^1.9.20",
+    "react": "^16.7.0",
     "react-addons-transition-group": "^15.6.2",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.7.0",
     "react-mounter": "^1.2.0",
     "react-router": "^4.2.0",
-    "react-table": "^6.8.2"
+    "react-table": "^6.8.6"
   }
 }
